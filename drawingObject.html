@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Drawing Object</title>
+</head>
+<body>
+
+	<canvas height="500px" width="500px" style="border: 2px solid black;" id="can" />
+
+	<script type="text/javascript">
+		
+		can=document.getElementById('can').getContext('2d');
+
+		var square={
+			x:200,
+			y:200,
+			width:100,
+			height:100,
+			color:"red"
+		};
+		can.save();
+
+		can.fillStyle=square.color;
+
+		can.fillRect(square.x,square.y,square.width,square.height);
+
+		can.restore();
+
+	</script>
+
+</body>
+</html>

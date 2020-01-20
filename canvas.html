@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Canvas Intro</title>
+</head>
+<body>
+	<canvas height="400px" width="400px" style="border: 2px solid black;" id="can" />
+
+	<script type="text/javascript">
+		var can=document.getElementById('can').getContext('2d');
+
+		can.font= '30px "Times New Roman"';
+		can.fillStyle = 'maroon';
+		can.fillText("My Canvas",140,50);
+		// can.strokeText("My Canvas",140,50);
+
+		can.moveTo(100,80);
+		can.lineTo(300,80);
+		can.stroke();
+
+		can.fillStyle = 'darkgreen';
+		// can.strokeRect(150,200,100,50);
+		can.fillRect(150,200,100,50);
+
+	</script>
+
+</body>
+</html>

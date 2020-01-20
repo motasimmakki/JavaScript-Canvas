@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Canvas Design</title>
+</head>
+<body>
+
+	<canvas height="499px" width="499px" style="border: 3px solid maroon;" id="can" />
+
+	<script type="text/javascript">
+		
+		var can=document.getElementById('can').getContext('2d');
+		var event=document.getElementById('can');
+
+		document.onkeydown =function(event){
+			var xMin=-1,xMax=400,yMin=-100,yMax=500,outterFlag=true,midFlag=true,innerFlag=true;
+
+			if(event.keyCode==32){
+				setInterval(function(){
+
+					if(outterFlag==true){
+						can.fillStyle='red';
+						can.fillRect(xMin,++yMin,100,100);
+						can.fillStyle='black';
+						can.fillRect(xMax,--yMax,100,100);
+					}
+						
+					if(xMin<=300&&yMin>=400&&midFlag==true){
+						outterFlag=false;
+						can.fillStyle='red';
+						can.fillRect(xMin++,yMin,100,100);
+						can.fillStyle='black';
+						can.fillRect(--xMax,yMax,100,100);
+					}
+
+					if(yMin>=100&&yMax<=400&&xMin>=300&&innerFlag==true){
+						midFlag=false;
+						can.fillStyle='red';
+						can.fillRect(xMin,--yMin,100,100);
+						can.fillStyle='black';
+						can.fillRect(xMax,++yMax,100,100);
+					}
+
+					if(xMin>=200&&xMax<=300&&yMin<=100){
+						innerFlag=false;
+						can.fillStyle='red';
+						can.fillRect(--xMin,yMin,100,100);
+						can.fillStyle='black';
+						can.fillRect(++xMax,yMax,100,100);
+					}
+
+					if(xMin==200){
+						can.fillStyle='darkgreen';
+						can.fillRect(xMin-1,yMin+100,101,100);
+					}
+
+				},2);
+				
+			}
+		}
+
+	</script>
+
+</body>
+</html>
